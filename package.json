@@ -1,0 +1,63 @@
+{
+  "name": "@socialapihq/sdk",
+  "version": "0.1.0",
+  "description": "The official TypeScript SDK for SocialAPI: public social media data from TikTok, Instagram, Threads and Facebook in one schema",
+  "license": "Apache-2.0",
+  "type": "module",
+  "author": "SocialAPI <support@socialapi.sh>",
+  "homepage": "https://socialapi.sh/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socialapihq/socialapi-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/socialapihq/socialapi-node/issues"
+  },
+  "keywords": [
+    "socialapi",
+    "social-media",
+    "scraping",
+    "api",
+    "sdk",
+    "tiktok",
+    "instagram",
+    "threads",
+    "facebook"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "generate": "node scripts/generate.mjs",
+    "generate:client": "tsx scripts/generate-client.ts",
+    "generate:reference": "tsx scripts/generate-api-reference.ts",
+    "generate:endpoint-tests": "tsx scripts/generate-endpoint-tests.ts",
+    "prepare": "npm run build",
+    "lint": "eslint src tests --max-warnings 0",
+    "check-types": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@openapitools/openapi-generator-cli": "^2.22.0",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.1",
+    "tsx": "^4.23.13",
+    "typescript": "5.9.2",
+    "typescript-eslint": "^8.50.0",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

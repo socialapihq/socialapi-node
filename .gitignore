@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+# The generator's own bookkeeping and markdown; the code is what is kept.
+src/.openapi-generator/
+src/docs/

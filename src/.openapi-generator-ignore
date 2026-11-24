@@ -1,0 +1,7 @@
+# The generator writes into src/; these files are maintained here, not generated.
+
+# The package's entry: it exports the `SocialAPI` client and its error too.
+index.ts
+# Generated markdown duplicates the website's docs.
+docs/
+README.md

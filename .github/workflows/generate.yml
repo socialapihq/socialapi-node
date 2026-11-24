@@ -1,0 +1,126 @@
+name: Regenerate
+
+# The API's deploy workflow dispatches `openapi-updated` after each production deploy.
+# The run regenerates the client from the live spec and, when it changed, tests, bumps,
+# commits, publishes to npm and releases. No change: it stops after the diff.
+on:
+  repository_dispatch:
+    types: [openapi-updated]
+  workflow_dispatch:
+
+concurrency:
+  group: regenerate-sdk
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    name: Regenerate, release and publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write # npm trusted publishing (OIDC) and provenance
+    environment: npm
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      # Trusted publishing needs npm 11.5 or later.
+      - name: Upgrade npm
+        run: npm install -g npm@^11.5.1
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: microsoft
+          java-version: 21
+
+      - run: npm ci --ignore-scripts
+
+      - name: Regenerate from the live spec
+        run: npm run generate
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -z "$(git status --porcelain -- src/ tests/ README.md)" ]; then
+            echo "The SDK already matches the live spec."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git status --short
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Lint
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run lint
+
+      - name: Type check
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run check-types
+
+      - name: Test
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm test
+
+      - name: Build
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run build
+
+      - name: Bump the version and commit
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          VERSION=$(npm version patch --no-git-tag-version)
+          git add src/ tests/ README.md package.json package-lock.json
+          git commit -m "Regenerate from the OpenAPI spec ($VERSION)"
+
+      # Two dispatches close together race for main; the fresher regeneration wins.
+      - name: Push
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          for attempt in 1 2 3; do
+            git push && exit 0
+            git pull --rebase -X theirs origin main
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push after 3 attempts."
+          exit 1
+
+      - name: Check whether this version is published
+        if: steps.changes.outputs.has_changes == 'true'
+        id: published
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if npm view "@socialapihq/sdk@$VERSION" version 2>/dev/null; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to npm
+        if: steps.changes.outputs.has_changes == 'true' && steps.published.outputs.skip != 'true'
+        run: npm publish --provenance --access public
+
+      - name: Create the GitHub release
+        if: steps.changes.outputs.has_changes == 'true' && steps.published.outputs.skip != 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.published.outputs.version }}
+          name: v${{ steps.published.outputs.version }}
+          generate_release_notes: true
+          body: |
+            Regenerated from the API's OpenAPI spec.
+
+            ```sh
+            npm install @socialapihq/sdk@${{ steps.published.outputs.version }}
+            ```
