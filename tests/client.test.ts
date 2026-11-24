@@ -23,7 +23,7 @@ const PROFILE = {
     verified: true,
     private: false,
     followers: 9440721,
-    ext: { secUid: "MS4wLjABAAAA", seller: false, likes: 0 },
+    ext: { secUid: "MS4wLjABAAAA", seller: false, likesPublic: false },
   },
 };
 
