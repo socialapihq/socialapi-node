@@ -594,7 +594,7 @@ export class AccountEndpoints {
 }
 
 /**
- * The SocialAPI client: one property per network, one method per endpoint.
+ * The SocialAPI client: one property per platform, one method per endpoint.
  *
  * ```ts
  * const client = new SocialAPI({ apiKey: process.env.SOCIALAPI_API_KEY });

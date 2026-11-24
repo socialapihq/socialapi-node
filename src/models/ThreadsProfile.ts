@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * SocialAPI
- * Public social media data from every network, in one schema.
+ * Public social media data from every platform, in one schema.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -60,7 +60,7 @@ export interface ThreadsProfile {
      */
     following?: number | null;
     /**
-     * The network's id for the account.
+     * The platform's id for the account.
      */
     id: string;
     /**

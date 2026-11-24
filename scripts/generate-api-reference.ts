@@ -31,21 +31,30 @@ const spec = (
 const property = (tag: string) => tag.toLowerCase().replace(/[^a-z0-9]/g, "");
 const lowerFirst = (text: string) => text.charAt(0).toLowerCase() + text.slice(1);
 
+/**
+ * What an endpoint returns, in a few words: its summary's first sentence, up to its first
+ * colon or comma ("A profile: name, bio…" is "A profile").
+ */
+function short(summary: string): string {
+  const sentence = summary.replace(/\s+/g, " ").trim().split(/\.(\s|$)/)[0] ?? "";
+  const head = sentence.split(/: |, | \(/)[0] ?? sentence;
+  return (head.charAt(0).toUpperCase() + head.slice(1)).replace(/\|/g, "\\|");
+}
+
 const groups = new Map<string, string[]>();
-for (const [path, item] of Object.entries(spec.paths ?? {})) {
+for (const item of Object.values(spec.paths ?? {})) {
   const operation = item.get;
   const tag = operation?.tags?.[0];
   if (!operation?.operationId || !tag) continue;
   const prefix = property(tag);
   const id = operation.operationId;
   const name = id.toLowerCase().startsWith(prefix) && id.length > prefix.length ? lowerFirst(id.slice(prefix.length)) : id;
-  const summary = (operation.summary ?? "").replace(/\s+/g, " ").replace(/\|/g, "\\|").trim();
-  groups.set(tag, [...(groups.get(tag) ?? []), `| \`client.${prefix}.${name}()\` | \`GET ${path}\` | ${summary} |`]);
+  groups.set(tag, [...(groups.get(tag) ?? []), `| \`${prefix}.${name}()\` | ${short(operation.summary ?? "")} |`]);
 }
 
 const tags = [...groups.keys()].sort((a, b) => (a === "Account" ? 1 : b === "Account" ? -1 : a.localeCompare(b)));
 const reference = tags
-  .map((tag) => [`### ${tag}`, "", "| Method | Endpoint | What it returns |", "| --- | --- | --- |", ...groups.get(tag)!].join("\n"))
+  .map((tag) => [`### ${tag}`, "", "| Method | Description |", "| --- | --- |", ...groups.get(tag)!].join("\n"))
   .join("\n\n");
 
 const readme = await readFile("README.md", "utf8");

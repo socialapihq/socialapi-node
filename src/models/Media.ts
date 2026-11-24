@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * SocialAPI
- * Public social media data from every network, in one schema.
+ * Public social media data from every platform, in one schema.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -22,7 +22,7 @@ import {
 } from './MediaKind.js';
 
 /**
- * One video, image or sound of a post. URLs are the network's own and usually expire.
+ * One video, image or sound of a post. URLs are the platform's own and usually expire.
  * @export
  * @interface Media
  */

@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * Writes src/client.ts, the `SocialAPI` client, from the OpenAPI spec: one property per
- * network (`client.tiktok`), one method per endpoint named after its path
+ * platform (`client.tiktok`), one method per endpoint named after its path
  * (`client.tiktok.postCommentReplies(...)`), each calling the generated API class and
  * turning a refusal into a `SocialAPIError`.
  *
@@ -118,7 +118,7 @@ export interface SocialAPIOptions {
 ${classes.join("\n\n")}
 
 /**
- * The SocialAPI client: one property per network, one method per endpoint.
+ * The SocialAPI client: one property per platform, one method per endpoint.
  *
  * \`\`\`ts
  * const client = new SocialAPI({ apiKey: process.env.SOCIALAPI_API_KEY });
