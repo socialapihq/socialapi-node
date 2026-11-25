@@ -850,7 +850,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With their plays, likes and comments. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * With their plays, likes, comments and cover. Captions, times and the video\'s link are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
      * An account\'s reels with their plays, 12 a page.
      */
     async instagramProfileReelsRaw(requestParameters: InstagramProfileReelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
@@ -861,7 +861,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With their plays, likes and comments. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * With their plays, likes, comments and cover. Captions, times and the video\'s link are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
      * An account\'s reels with their plays, 12 a page.
      */
     async instagramProfileReels(requestParameters: InstagramProfileReelsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
