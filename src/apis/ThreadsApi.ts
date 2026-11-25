@@ -261,7 +261,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * One thread: text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers, a link\'s preview. Views are not shown to a visitor. 1 credit.
+     * Text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers and a link\'s preview. Views are not shown to a visitor. 1 credit.
+     * One thread with its counts, media and links.
      */
     async threadsPostRaw(requestParameters: ThreadsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemThreadsPost>> {
         const requestOptions = await this.threadsPostRequestOpts(requestParameters);
@@ -271,7 +272,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * One thread: text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers, a link\'s preview. Views are not shown to a visitor. 1 credit.
+     * Text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers and a link\'s preview. Views are not shown to a visitor. 1 credit.
+     * One thread with its counts, media and links.
      */
     async threadsPost(requestParameters: ThreadsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemThreadsPost> {
         const response = await this.threadsPostRaw(requestParameters, initOverrides);
@@ -322,7 +324,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A thread\'s replies, top or latest first: the first 15 or so, all Threads shows a visitor (no next page). 1 credit.
+     * The first 15 or so, all Threads shows a visitor (no next page). 1 credit.
+     * A thread\'s replies, top or latest first.
      */
     async threadsPostCommentsRaw(requestParameters: ThreadsPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsComment>> {
         const requestOptions = await this.threadsPostCommentsRequestOpts(requestParameters);
@@ -332,7 +335,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A thread\'s replies, top or latest first: the first 15 or so, all Threads shows a visitor (no next page). 1 credit.
+     * The first 15 or so, all Threads shows a visitor (no next page). 1 credit.
+     * A thread\'s replies, top or latest first.
      */
     async threadsPostComments(requestParameters: ThreadsPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsComment> {
         const response = await this.threadsPostCommentsRaw(requestParameters, initOverrides);
@@ -379,7 +383,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio and its links, its interests, verified, private and the follower count. 1 credit.
+     * Name, bio and its links, interests, verified, private and the follower count. 1 credit.
+     * A profile with its follower count.
      */
     async threadsProfileRaw(requestParameters: ThreadsProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemThreadsProfile>> {
         const requestOptions = await this.threadsProfileRequestOpts(requestParameters);
@@ -389,7 +394,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio and its links, its interests, verified, private and the follower count. 1 credit.
+     * Name, bio and its links, interests, verified, private and the follower count. 1 credit.
+     * A profile with its follower count.
      */
     async threadsProfile(requestParameters: ThreadsProfileRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemThreadsProfile> {
         const response = await this.threadsProfileRaw(requestParameters, initOverrides);
@@ -440,7 +446,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s threads with photos or videos, 25 a page. 1 credit a page.
+     * 1 credit a page.
+     * An account\'s threads with photos or videos, 25 a page.
      */
     async threadsProfileMediaRaw(requestParameters: ThreadsProfileMediaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsProfileMediaRequestOpts(requestParameters);
@@ -450,7 +457,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s threads with photos or videos, 25 a page. 1 credit a page.
+     * 1 credit a page.
+     * An account\'s threads with photos or videos, 25 a page.
      */
     async threadsProfileMedia(requestParameters: ThreadsProfileMediaRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsProfileMediaRaw(requestParameters, initOverrides);
@@ -501,7 +509,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s threads with their likes, replies, reposts, quotes and shares, newest first (pinned ones first of all), 25 a page. 1 credit a page.
+     * With their likes, replies, reposts, quotes and shares. Pinned ones come first of all. 1 credit a page.
+     * An account\'s threads, newest first, 25 a page.
      */
     async threadsProfilePostsRaw(requestParameters: ThreadsProfilePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsProfilePostsRequestOpts(requestParameters);
@@ -511,7 +520,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s threads with their likes, replies, reposts, quotes and shares, newest first (pinned ones first of all), 25 a page. 1 credit a page.
+     * With their likes, replies, reposts, quotes and shares. Pinned ones come first of all. 1 credit a page.
+     * An account\'s threads, newest first, 25 a page.
      */
     async threadsProfilePosts(requestParameters: ThreadsProfilePostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsProfilePostsRaw(requestParameters, initOverrides);
@@ -562,7 +572,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s replies to other threads, each with the post it answers (`ext.replyTo`), 25 a page. 1 credit a page.
+     * Each with the post it answers, in `ext.replyTo`. 1 credit a page.
+     * An account\'s replies to other threads, 25 a page.
      */
     async threadsProfileRepliesRaw(requestParameters: ThreadsProfileRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsProfileRepliesRequestOpts(requestParameters);
@@ -572,7 +583,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s replies to other threads, each with the post it answers (`ext.replyTo`), 25 a page. 1 credit a page.
+     * Each with the post it answers, in `ext.replyTo`. 1 credit a page.
+     * An account\'s replies to other threads, 25 a page.
      */
     async threadsProfileReplies(requestParameters: ThreadsProfileRepliesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsProfileRepliesRaw(requestParameters, initOverrides);
@@ -623,7 +635,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Other people\'s threads an account reposted, with when (`ext.repostedAt`). 1 credit a page.
+     * With when, in `ext.repostedAt`. 1 credit a page.
+     * Other people\'s threads an account reposted.
      */
     async threadsProfileRepostsRaw(requestParameters: ThreadsProfileRepostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsProfileRepostsRequestOpts(requestParameters);
@@ -633,7 +646,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Other people\'s threads an account reposted, with when (`ext.repostedAt`). 1 credit a page.
+     * With when, in `ext.repostedAt`. 1 credit a page.
+     * Other people\'s threads an account reposted.
      */
     async threadsProfileReposts(requestParameters: ThreadsProfileRepostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsProfileRepostsRaw(requestParameters, initOverrides);
@@ -687,7 +701,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Threads matching a query, top or latest first: about 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
+     * About 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
+     * Threads matching a query, top or latest first.
      */
     async threadsSearchRaw(requestParameters: ThreadsSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsSearchRequestOpts(requestParameters);
@@ -697,7 +712,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Threads matching a query, top or latest first: about 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
+     * About 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
+     * Threads matching a query, top or latest first.
      */
     async threadsSearch(requestParameters: ThreadsSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsSearchRaw(requestParameters, initOverrides);
@@ -747,7 +763,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts matching a name: the first 10, without their counts. 1 credit.
+     * Without their counts. 1 credit.
+     * Accounts matching a name, the first 10.
      */
     async threadsSearchUsersRaw(requestParameters: ThreadsSearchUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsProfile>> {
         const requestOptions = await this.threadsSearchUsersRequestOpts(requestParameters);
@@ -757,7 +774,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts matching a name: the first 10, without their counts. 1 credit.
+     * Without their counts. 1 credit.
+     * Accounts matching a name, the first 10.
      */
     async threadsSearchUsers(requestParameters: ThreadsSearchUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsProfile> {
         const response = await this.threadsSearchUsersRaw(requestParameters, initOverrides);
@@ -800,7 +818,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The feed Threads gives a visitor now: about 20 threads in all. 1 credit a page.
+     * About 20 threads in all. 1 credit a page.
+     * The feed Threads gives a visitor now.
      */
     async threadsTrendingRaw(requestParameters: ThreadsTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListThreadsPost>> {
         const requestOptions = await this.threadsTrendingRequestOpts(requestParameters);
@@ -810,7 +829,8 @@ export class ThreadsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The feed Threads gives a visitor now: about 20 threads in all. 1 credit a page.
+     * About 20 threads in all. 1 credit a page.
+     * The feed Threads gives a visitor now.
      */
     async threadsTrending(requestParameters: ThreadsTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListThreadsPost> {
         const response = await this.threadsTrendingRaw(requestParameters, initOverrides);

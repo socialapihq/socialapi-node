@@ -341,7 +341,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * An event: name, description, when, where, its host, how many are going, its tickets\' link. 1 credit.
+     * Name, description, when, where, its host, how many are going and its tickets\' link. 1 credit.
+     * One event, with its time, place and host.
      */
     async facebookEventRaw(requestParameters: FacebookEventRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookEvent>> {
         const requestOptions = await this.facebookEventRequestOpts(requestParameters);
@@ -351,7 +352,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * An event: name, description, when, where, its host, how many are going, its tickets\' link. 1 credit.
+     * Name, description, when, where, its host, how many are going and its tickets\' link. 1 credit.
+     * One event, with its time, place and host.
      */
     async facebookEvent(requestParameters: FacebookEventRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookEvent> {
         const response = await this.facebookEventRaw(requestParameters, initOverrides);
@@ -402,7 +404,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A city\'s upcoming events, 12 a page. 1 credit a page.
+     * 1 credit a page.
+     * A city\'s upcoming events, 12 a page.
      */
     async facebookEventsRaw(requestParameters: FacebookEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookEvent>> {
         const requestOptions = await this.facebookEventsRequestOpts(requestParameters);
@@ -412,7 +415,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A city\'s upcoming events, 12 a page. 1 credit a page.
+     * 1 credit a page.
+     * A city\'s upcoming events, 12 a page.
      */
     async facebookEvents(requestParameters: FacebookEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookEvent> {
         const response = await this.facebookEventsRaw(requestParameters, initOverrides);
@@ -466,7 +470,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Events matching a query: two short pages, all Facebook shows a visitor. 1 credit a page.
+     * Two short pages, all Facebook shows a visitor. 1 credit a page.
+     * Events matching a query.
      */
     async facebookEventsSearchRaw(requestParameters: FacebookEventsSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookEvent>> {
         const requestOptions = await this.facebookEventsSearchRequestOpts(requestParameters);
@@ -476,7 +481,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Events matching a query: two short pages, all Facebook shows a visitor. 1 credit a page.
+     * Two short pages, all Facebook shows a visitor. 1 credit a page.
+     * Events matching a query.
      */
     async facebookEventsSearch(requestParameters: FacebookEventsSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookEvent> {
         const response = await this.facebookEventsSearchRaw(requestParameters, initOverrides);
@@ -523,7 +529,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * One Marketplace listing: title, description, price, condition, place, seller. 1 credit.
+     * Title, description, price, condition, place and seller. 1 credit.
+     * One Marketplace listing.
      */
     async facebookMarketplaceItemRaw(requestParameters: FacebookMarketplaceItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookListing>> {
         const requestOptions = await this.facebookMarketplaceItemRequestOpts(requestParameters);
@@ -533,7 +540,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * One Marketplace listing: title, description, price, condition, place, seller. 1 credit.
+     * Title, description, price, condition, place and seller. 1 credit.
+     * One Marketplace listing.
      */
     async facebookMarketplaceItem(requestParameters: FacebookMarketplaceItemRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookListing> {
         const response = await this.facebookMarketplaceItemRaw(requestParameters, initOverrides);
@@ -613,7 +621,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Marketplace listings for a query around a point: title, price, place, seller, about 14, the first page Facebook shows a visitor. 1 credit.
+     * Title, price, place and seller of each, about 14, the first page Facebook shows a visitor. 1 credit.
+     * Marketplace listings for a query near a point.
      */
     async facebookMarketplaceSearchRaw(requestParameters: FacebookMarketplaceSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookListing>> {
         const requestOptions = await this.facebookMarketplaceSearchRequestOpts(requestParameters);
@@ -623,7 +632,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Marketplace listings for a query around a point: title, price, place, seller, about 14, the first page Facebook shows a visitor. 1 credit.
+     * Title, price, place and seller of each, about 14, the first page Facebook shows a visitor. 1 credit.
+     * Marketplace listings for a query near a point.
      */
     async facebookMarketplaceSearch(requestParameters: FacebookMarketplaceSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookListing> {
         const response = await this.facebookMarketplaceSearchRaw(requestParameters, initOverrides);
@@ -666,7 +676,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post, reel or video: text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
+     * Text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
+     * One post, reel or video with its counts and media.
      */
     async facebookPostRaw(requestParameters: FacebookPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookPost>> {
         const requestOptions = await this.facebookPostRequestOpts(requestParameters);
@@ -676,7 +687,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post, reel or video: text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
+     * Text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
+     * One post, reel or video with its counts and media.
      */
     async facebookPost(requestParameters: FacebookPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookPost> {
         const response = await this.facebookPostRaw(requestParameters, initOverrides);
@@ -730,7 +742,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * The replies to one comment, about 10 a page, named by its `ext.repliesToken`. 1 credit a page.
+     * The comment is named by its `ext.repliesToken`. 1 credit a page.
+     * The replies to one comment, about 10 a page.
      */
     async facebookPostCommentRepliesRaw(requestParameters: FacebookPostCommentRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookComment>> {
         const requestOptions = await this.facebookPostCommentRepliesRequestOpts(requestParameters);
@@ -740,7 +753,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * The replies to one comment, about 10 a page, named by its `ext.repliesToken`. 1 credit a page.
+     * The comment is named by its `ext.repliesToken`. 1 credit a page.
+     * The replies to one comment, about 10 a page.
      */
     async facebookPostCommentReplies(requestParameters: FacebookPostCommentRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookComment> {
         const response = await this.facebookPostCommentRepliesRaw(requestParameters, initOverrides);
@@ -787,7 +801,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s comments, most relevant first, with their reactions and how many replies, 10 a page. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
+     * With their reactions and reply counts. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
+     * A post\'s comments, most relevant first, 10 a page.
      */
     async facebookPostCommentsRaw(requestParameters: FacebookPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookComment>> {
         const requestOptions = await this.facebookPostCommentsRequestOpts(requestParameters);
@@ -797,7 +812,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s comments, most relevant first, with their reactions and how many replies, 10 a page. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
+     * With their reactions and reply counts. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
+     * A post\'s comments, most relevant first, 10 a page.
      */
     async facebookPostComments(requestParameters: FacebookPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookComment> {
         const response = await this.facebookPostCommentsRaw(requestParameters, initOverrides);
@@ -844,7 +860,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A video\'s captions as text with their times: Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * A video\'s captions as text with their times.
      */
     async facebookPostTranscriptRaw(requestParameters: FacebookPostTranscriptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookTranscript>> {
         const requestOptions = await this.facebookPostTranscriptRequestOpts(requestParameters);
@@ -854,7 +871,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A video\'s captions as text with their times: Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * A video\'s captions as text with their times.
      */
     async facebookPostTranscript(requestParameters: FacebookPostTranscriptRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookTranscript> {
         const response = await this.facebookPostTranscriptRaw(requestParameters, initOverrides);
@@ -901,7 +919,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page or a public person: name, category, bio, verified, follower count (as Facebook rounds it, \"39M\"), cover and the intro\'s lines (address, phone, links). 1 credit.
+     * Name, category, bio, verified, followers as Facebook rounds them (\"39M\"), cover and the intro\'s lines (address, phone, links). 1 credit.
+     * A Page or a public person, with its follower count.
      */
     async facebookProfileRaw(requestParameters: FacebookProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookProfile>> {
         const requestOptions = await this.facebookProfileRequestOpts(requestParameters);
@@ -911,7 +930,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page or a public person: name, category, bio, verified, follower count (as Facebook rounds it, \"39M\"), cover and the intro\'s lines (address, phone, links). 1 credit.
+     * Name, category, bio, verified, followers as Facebook rounds them (\"39M\"), cover and the intro\'s lines (address, phone, links). 1 credit.
+     * A Page or a public person, with its follower count.
      */
     async facebookProfile(requestParameters: FacebookProfileRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookProfile> {
         const response = await this.facebookProfileRaw(requestParameters, initOverrides);
@@ -962,7 +982,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s or person\'s photos, 8 a page. 1 credit a page.
+     * 1 credit a page.
+     * A Page\'s or person\'s photos, 8 a page.
      */
     async facebookProfilePhotosRaw(requestParameters: FacebookProfilePhotosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookPost>> {
         const requestOptions = await this.facebookProfilePhotosRequestOpts(requestParameters);
@@ -972,7 +993,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s or person\'s photos, 8 a page. 1 credit a page.
+     * 1 credit a page.
+     * A Page\'s or person\'s photos, 8 a page.
      */
     async facebookProfilePhotos(requestParameters: FacebookProfilePhotosRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookPost> {
         const response = await this.facebookProfilePhotosRaw(requestParameters, initOverrides);
@@ -1023,7 +1045,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s or person\'s posts, newest first, with their reactions by kind, comments, shares and video views: 3 a page, as Facebook pages them. 1 credit a page.
+     * With reactions by kind, comments, shares and a video\'s views, 3 a page as Facebook pages them. 1 credit a page.
+     * A Page\'s or person\'s posts, newest first, 3 a page.
      */
     async facebookProfilePostsRaw(requestParameters: FacebookProfilePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookPost>> {
         const requestOptions = await this.facebookProfilePostsRequestOpts(requestParameters);
@@ -1033,7 +1056,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s or person\'s posts, newest first, with their reactions by kind, comments, shares and video views: 3 a page, as Facebook pages them. 1 credit a page.
+     * With reactions by kind, comments, shares and a video\'s views, 3 a page as Facebook pages them. 1 credit a page.
+     * A Page\'s or person\'s posts, newest first, 3 a page.
      */
     async facebookProfilePosts(requestParameters: FacebookProfilePostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookPost> {
         const response = await this.facebookProfilePostsRaw(requestParameters, initOverrides);
@@ -1084,7 +1108,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s videos with their plays and reactions, about 6 a page. Only a Page has one. 1 credit a page.
+     * With their reactions. Only a Page has a videos tab. 1 credit a page.
+     * A Page\'s videos with their plays, about 6 a page.
      */
     async facebookProfileVideosRaw(requestParameters: FacebookProfileVideosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListFacebookPost>> {
         const requestOptions = await this.facebookProfileVideosRequestOpts(requestParameters);
@@ -1094,7 +1119,8 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * A page\'s videos with their plays and reactions, about 6 a page. Only a Page has one. 1 credit a page.
+     * With their reactions. Only a Page has a videos tab. 1 credit a page.
+     * A Page\'s videos with their plays, about 6 a page.
      */
     async facebookProfileVideos(requestParameters: FacebookProfileVideosRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListFacebookPost> {
         const response = await this.facebookProfileVideosRaw(requestParameters, initOverrides);

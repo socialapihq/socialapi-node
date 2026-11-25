@@ -57,7 +57,8 @@ export class AccountApi extends runtime.BaseAPI {
     }
 
     /**
-     * The credits left. Free, and not counted against the rate limit.
+     * Free, and not counted against the rate limit.
+     * The credits left in your workspace.
      */
     async getCreditsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditsBody>> {
         const requestOptions = await this.getCreditsRequestOpts();
@@ -67,7 +68,8 @@ export class AccountApi extends runtime.BaseAPI {
     }
 
     /**
-     * The credits left. Free, and not counted against the rate limit.
+     * Free, and not counted against the rate limit.
+     * The credits left in your workspace.
      */
     async getCredits(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditsBody> {
         const response = await this.getCreditsRaw(initOverrides);

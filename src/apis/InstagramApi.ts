@@ -362,7 +362,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A story highlight\'s stories, each with its media and time. 1 credit.
+     * Each with its media and time. 1 credit.
+     * A story highlight\'s stories, with their media.
      */
     async instagramHighlightRaw(requestParameters: InstagramHighlightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramHighlightRequestOpts(requestParameters);
@@ -372,7 +373,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A story highlight\'s stories, each with its media and time. 1 credit.
+     * Each with its media and time. 1 credit.
+     * A story highlight\'s stories, with their media.
      */
     async instagramHighlight(requestParameters: InstagramHighlightRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramHighlightRaw(requestParameters, initOverrides);
@@ -419,7 +421,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A place: its name, category, address, phone, coordinates and how many posts are tagged at it. 1 credit.
+     * Name, category, address, phone and coordinates, and how many posts are tagged at it. 1 credit.
+     * A place, with how many posts are tagged at it.
      */
     async instagramLocationRaw(requestParameters: InstagramLocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemInstagramPlace>> {
         const requestOptions = await this.instagramLocationRequestOpts(requestParameters);
@@ -429,7 +432,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A place: its name, category, address, phone, coordinates and how many posts are tagged at it. 1 credit.
+     * Name, category, address, phone and coordinates, and how many posts are tagged at it. 1 credit.
+     * A place, with how many posts are tagged at it.
      */
     async instagramLocation(requestParameters: InstagramLocationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemInstagramPlace> {
         const response = await this.instagramLocationRaw(requestParameters, initOverrides);
@@ -476,7 +480,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A place\'s top posts with their likes, comments and times: the 18 Instagram shows a visitor, no more. 1 credit.
+     * With their times. The 18 Instagram shows a visitor, no more. 1 credit.
+     * A place\'s top posts with their likes and comments.
      */
     async instagramLocationPostsRaw(requestParameters: InstagramLocationPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramLocationPostsRequestOpts(requestParameters);
@@ -486,7 +491,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A place\'s top posts with their likes, comments and times: the 18 Instagram shows a visitor, no more. 1 credit.
+     * With their times. The 18 Instagram shows a visitor, no more. 1 credit.
+     * A place\'s top posts with their likes and comments.
      */
     async instagramLocationPosts(requestParameters: InstagramLocationPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramLocationPostsRaw(requestParameters, initOverrides);
@@ -533,7 +539,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post or reel: caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
+     * Caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
+     * One post or reel with its counts, media and tags.
      */
     async instagramPostRaw(requestParameters: InstagramPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemInstagramPost>> {
         const requestOptions = await this.instagramPostRequestOpts(requestParameters);
@@ -543,7 +550,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post or reel: caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
+     * Caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
+     * One post or reel with its counts, media and tags.
      */
     async instagramPost(requestParameters: InstagramPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemInstagramPost> {
         const response = await this.instagramPostRaw(requestParameters, initOverrides);
@@ -594,7 +602,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s comments with their likes, about 22 a page. Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * A post\'s comments with their likes, about 22 a page.
      */
     async instagramPostCommentsRaw(requestParameters: InstagramPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramComment>> {
         const requestOptions = await this.instagramPostCommentsRequestOpts(requestParameters);
@@ -604,7 +613,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s comments with their likes, about 22 a page. Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * A post\'s comments with their likes, about 22 a page.
      */
     async instagramPostComments(requestParameters: InstagramPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramComment> {
         const response = await this.instagramPostCommentsRaw(requestParameters, initOverrides);
@@ -651,7 +661,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
+     * Name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
+     * A profile with its follower and following counts.
      */
     async instagramProfileRaw(requestParameters: InstagramProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemInstagramProfile>> {
         const requestOptions = await this.instagramProfileRequestOpts(requestParameters);
@@ -661,7 +672,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
+     * Name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
+     * A profile with its follower and following counts.
      */
     async instagramProfile(requestParameters: InstagramProfileRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemInstagramProfile> {
         const response = await this.instagramProfileRaw(requestParameters, initOverrides);
@@ -712,7 +724,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s story highlights: their titles and covers, the first 10 (all Instagram shows a visitor; the profile\'s `ext.moreHighlights` says when there are more). 1 credit.
+     * Their titles and covers. The first 10, all Instagram shows a visitor; the profile\'s `ext.moreHighlights` says when there are more. 1 credit.
+     * An account\'s story highlights, with their covers.
      */
     async instagramProfileHighlightsRaw(requestParameters: InstagramProfileHighlightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramHighlight>> {
         const requestOptions = await this.instagramProfileHighlightsRequestOpts(requestParameters);
@@ -722,7 +735,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s story highlights: their titles and covers, the first 10 (all Instagram shows a visitor; the profile\'s `ext.moreHighlights` says when there are more). 1 credit.
+     * Their titles and covers. The first 10, all Instagram shows a visitor; the profile\'s `ext.moreHighlights` says when there are more. 1 credit.
+     * An account\'s story highlights, with their covers.
      */
     async instagramProfileHighlights(requestParameters: InstagramProfileHighlightsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramHighlight> {
         const response = await this.instagramProfileHighlightsRaw(requestParameters, initOverrides);
@@ -773,7 +787,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s posts with their likes, comments, captions and times, newest first, 12 a page. 1 credit a page.
+     * With their likes, comments, captions and times. 1 credit a page.
+     * An account\'s posts, newest first, 12 a page.
      */
     async instagramProfilePostsRaw(requestParameters: InstagramProfilePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramProfilePostsRequestOpts(requestParameters);
@@ -783,7 +798,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s posts with their likes, comments, captions and times, newest first, 12 a page. 1 credit a page.
+     * With their likes, comments, captions and times. 1 credit a page.
+     * An account\'s posts, newest first, 12 a page.
      */
     async instagramProfilePosts(requestParameters: InstagramProfilePostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramProfilePostsRaw(requestParameters, initOverrides);
@@ -834,7 +850,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s reels with their plays, likes and comments, 12 a page. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * With their plays, likes and comments. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * An account\'s reels with their plays, 12 a page.
      */
     async instagramProfileReelsRaw(requestParameters: InstagramProfileReelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramProfileReelsRequestOpts(requestParameters);
@@ -844,7 +861,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s reels with their plays, likes and comments, 12 a page. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * With their plays, likes and comments. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+     * An account\'s reels with their plays, 12 a page.
      */
     async instagramProfileReels(requestParameters: InstagramProfileReelsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramProfileReelsRaw(requestParameters, initOverrides);
@@ -895,7 +913,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts like this one, as Instagram suggests them: up to 50, without their counts. Some accounts have none. 1 credit.
+     * Up to 50, without their counts. Some accounts have none. 1 credit.
+     * Accounts like this one, as Instagram suggests them.
      */
     async instagramProfileSimilarRaw(requestParameters: InstagramProfileSimilarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramProfile>> {
         const requestOptions = await this.instagramProfileSimilarRequestOpts(requestParameters);
@@ -905,7 +924,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts like this one, as Instagram suggests them: up to 50, without their counts. Some accounts have none. 1 credit.
+     * Up to 50, without their counts. Some accounts have none. 1 credit.
+     * Accounts like this one, as Instagram suggests them.
      */
     async instagramProfileSimilar(requestParameters: InstagramProfileSimilarRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramProfile> {
         const response = await this.instagramProfileSimilarRaw(requestParameters, initOverrides);
@@ -959,7 +979,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts for a word or hashtag, as Instagram shows a visitor (its popular page): mostly reels with their plays, 12 a page, about 100 in all. Some words have no such page and answer an empty list. 1 credit a page.
+     * Mostly reels with their plays, from its popular page, about 100 in all, as Instagram shows a visitor. Some words have no such page and answer an empty list. 1 credit a page.
+     * Popular posts for a word or hashtag, 12 a page.
      */
     async instagramSearchRaw(requestParameters: InstagramSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramSearchRequestOpts(requestParameters);
@@ -969,7 +990,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts for a word or hashtag, as Instagram shows a visitor (its popular page): mostly reels with their plays, 12 a page, about 100 in all. Some words have no such page and answer an empty list. 1 credit a page.
+     * Mostly reels with their plays, from its popular page, about 100 in all, as Instagram shows a visitor. Some words have no such page and answer an empty list. 1 credit a page.
+     * Popular posts for a word or hashtag, 12 a page.
      */
     async instagramSearch(requestParameters: InstagramSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramSearchRaw(requestParameters, initOverrides);
@@ -1016,7 +1038,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A sound: a song (title, artist, cover, length) or an account\'s original audio, and how many reels use it. 1 credit.
+     * A song (title, artist, cover, length) or an account\'s original audio. 1 credit.
+     * A sound, and how many reels use it.
      */
     async instagramSoundRaw(requestParameters: InstagramSoundRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemInstagramSound>> {
         const requestOptions = await this.instagramSoundRequestOpts(requestParameters);
@@ -1026,7 +1049,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * A sound: a song (title, artist, cover, length) or an account\'s original audio, and how many reels use it. 1 credit.
+     * A song (title, artist, cover, length) or an account\'s original audio. 1 credit.
+     * A sound, and how many reels use it.
      */
     async instagramSound(requestParameters: InstagramSoundRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemInstagramSound> {
         const response = await this.instagramSoundRaw(requestParameters, initOverrides);
@@ -1077,7 +1101,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The reels that use a sound, with their plays, likes, comments and times, 12 a page. 1 credit a page.
+     * With their plays, likes, comments and times. 1 credit a page.
+     * The reels that use a sound, 12 a page.
      */
     async instagramSoundPostsRaw(requestParameters: InstagramSoundPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramSoundPostsRequestOpts(requestParameters);
@@ -1087,7 +1112,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The reels that use a sound, with their plays, likes, comments and times, 12 a page. 1 credit a page.
+     * With their plays, likes, comments and times. 1 credit a page.
+     * The reels that use a sound, 12 a page.
      */
     async instagramSoundPosts(requestParameters: InstagramSoundPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramSoundPostsRaw(requestParameters, initOverrides);
@@ -1130,7 +1156,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The reels feed Instagram gives a visitor now, with likes, comments and times, 8 a page. 1 credit a page.
+     * With likes, comments and times. 1 credit a page.
+     * The reels feed Instagram gives a visitor, 8 a page.
      */
     async instagramTrendingRaw(requestParameters: InstagramTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
         const requestOptions = await this.instagramTrendingRequestOpts(requestParameters);
@@ -1140,7 +1167,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The reels feed Instagram gives a visitor now, with likes, comments and times, 8 a page. 1 credit a page.
+     * With likes, comments and times. 1 credit a page.
+     * The reels feed Instagram gives a visitor, 8 a page.
      */
     async instagramTrending(requestParameters: InstagramTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
         const response = await this.instagramTrendingRaw(requestParameters, initOverrides);
@@ -1179,7 +1207,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The explore page: trending keywords with their post counts, categories, and accounts to look out for, by section. 1 credit.
+     * Keywords with their post counts and categories, and accounts to watch, by section. 1 credit.
+     * The explore page\'s trending keywords and accounts.
      */
     async instagramTrendingTopicsRaw(requestParameters: InstagramTrendingTopicsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramTrend>> {
         const requestOptions = await this.instagramTrendingTopicsRequestOpts(requestParameters);
@@ -1189,7 +1218,8 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * The explore page: trending keywords with their post counts, categories, and accounts to look out for, by section. 1 credit.
+     * Keywords with their post counts and categories, and accounts to watch, by section. 1 credit.
+     * The explore page\'s trending keywords and accounts.
      */
     async instagramTrendingTopics(requestParameters: InstagramTrendingTopicsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramTrend> {
         const response = await this.instagramTrendingTopicsRaw(requestParameters, initOverrides);

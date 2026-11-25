@@ -24,7 +24,7 @@ export class FacebookEndpoints {
   constructor(private readonly api: FacebookApi) {}
 
   /**
-   * An event: name, description, when, where, its host, how many are going, its tickets' link. 1 credit.
+   * One event, with its time, place and host. Name, description, when, where, its host, how many are going and its tickets' link. 1 credit.
    *
    * `GET /v1/facebook/event`
    */
@@ -42,7 +42,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * Events matching a query: two short pages, all Facebook shows a visitor. 1 credit a page.
+   * Events matching a query. Two short pages, all Facebook shows a visitor. 1 credit a page.
    *
    * `GET /v1/facebook/events/search`
    */
@@ -51,7 +51,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * One Marketplace listing: title, description, price, condition, place, seller. 1 credit.
+   * One Marketplace listing. Title, description, price, condition, place and seller. 1 credit.
    *
    * `GET /v1/facebook/marketplace/item`
    */
@@ -60,7 +60,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * Marketplace listings for a query around a point: title, price, place, seller, about 14, the first page Facebook shows a visitor. 1 credit.
+   * Marketplace listings for a query near a point. Title, price, place and seller of each, about 14, the first page Facebook shows a visitor. 1 credit.
    *
    * `GET /v1/facebook/marketplace/search`
    */
@@ -69,7 +69,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * One post, reel or video: text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
+   * One post, reel or video with its counts and media. Text, author, time, reactions by kind, comment and share counts, its media and the caption tracks it has. 1 credit.
    *
    * `GET /v1/facebook/post`
    */
@@ -78,7 +78,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * The replies to one comment, about 10 a page, named by its `ext.repliesToken`. 1 credit a page.
+   * The replies to one comment, about 10 a page. The comment is named by its `ext.repliesToken`. 1 credit a page.
    *
    * `GET /v1/facebook/post/comment/replies`
    */
@@ -87,7 +87,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A post's comments, most relevant first, with their reactions and how many replies, 10 a page. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
+   * A post's comments, most relevant first, 10 a page. With their reactions and reply counts. A comment with replies carries `ext.repliesToken` for `/v1/facebook/post/comment/replies`. 1 credit a page.
    *
    * `GET /v1/facebook/post/comments`
    */
@@ -96,7 +96,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A video's captions as text with their times: Facebook's own track, in the video's language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+   * A video's captions as text with their times. Facebook's own track, in the video's language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
    *
    * `GET /v1/facebook/post/transcript`
    */
@@ -105,7 +105,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A page or a public person: name, category, bio, verified, follower count (as Facebook rounds it, "39M"), cover and the intro's lines (address, phone, links). 1 credit.
+   * A Page or a public person, with its follower count. Name, category, bio, verified, followers as Facebook rounds them ("39M"), cover and the intro's lines (address, phone, links). 1 credit.
    *
    * `GET /v1/facebook/profile`
    */
@@ -114,7 +114,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A page's or person's photos, 8 a page. 1 credit a page.
+   * A Page's or person's photos, 8 a page. 1 credit a page.
    *
    * `GET /v1/facebook/profile/photos`
    */
@@ -123,7 +123,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A page's or person's posts, newest first, with their reactions by kind, comments, shares and video views: 3 a page, as Facebook pages them. 1 credit a page.
+   * A Page's or person's posts, newest first, 3 a page. With reactions by kind, comments, shares and a video's views, 3 a page as Facebook pages them. 1 credit a page.
    *
    * `GET /v1/facebook/profile/posts`
    */
@@ -132,7 +132,7 @@ export class FacebookEndpoints {
   }
 
   /**
-   * A page's videos with their plays and reactions, about 6 a page. Only a Page has one. 1 credit a page.
+   * A Page's videos with their plays, about 6 a page. With their reactions. Only a Page has a videos tab. 1 credit a page.
    *
    * `GET /v1/facebook/profile/videos`
    */
@@ -146,7 +146,7 @@ export class InstagramEndpoints {
   constructor(private readonly api: InstagramApi) {}
 
   /**
-   * A story highlight's stories, each with its media and time. 1 credit.
+   * A story highlight's stories, with their media. Each with its media and time. 1 credit.
    *
    * `GET /v1/instagram/highlight`
    */
@@ -155,7 +155,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * A place: its name, category, address, phone, coordinates and how many posts are tagged at it. 1 credit.
+   * A place, with how many posts are tagged at it. Name, category, address, phone and coordinates, and how many posts are tagged at it. 1 credit.
    *
    * `GET /v1/instagram/location`
    */
@@ -164,7 +164,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * A place's top posts with their likes, comments and times: the 18 Instagram shows a visitor, no more. 1 credit.
+   * A place's top posts with their likes and comments. With their times. The 18 Instagram shows a visitor, no more. 1 credit.
    *
    * `GET /v1/instagram/location/posts`
    */
@@ -173,7 +173,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * One post or reel: caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
+   * One post or reel with its counts, media and tags. Caption, time, author, like and comment counts, its media, the place it was tagged at, the accounts tagged in it and the sound a reel uses. 1 credit.
    *
    * `GET /v1/instagram/post`
    */
@@ -191,7 +191,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * A profile: name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
+   * A profile with its follower and following counts. Name, bio and its links, verified, private, follower and following counts. Instagram does not show a visitor the post count, so `posts` is absent. 1 credit.
    *
    * `GET /v1/instagram/profile`
    */
@@ -200,7 +200,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * An account's story highlights: their titles and covers, the first 10 (all Instagram shows a visitor; the profile's `ext.moreHighlights` says when there are more). 1 credit.
+   * An account's story highlights, with their covers. Their titles and covers. The first 10, all Instagram shows a visitor; the profile's `ext.moreHighlights` says when there are more. 1 credit.
    *
    * `GET /v1/instagram/profile/highlights`
    */
@@ -209,7 +209,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * An account's posts with their likes, comments, captions and times, newest first, 12 a page. 1 credit a page.
+   * An account's posts, newest first, 12 a page. With their likes, comments, captions and times. 1 credit a page.
    *
    * `GET /v1/instagram/profile/posts`
    */
@@ -218,7 +218,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * An account's reels with their plays, likes and comments, 12 a page. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
+   * An account's reels with their plays, 12 a page. With their plays, likes and comments. Captions and times are not in this list; read a reel with `/v1/instagram/post`. 1 credit a page.
    *
    * `GET /v1/instagram/profile/reels`
    */
@@ -227,7 +227,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * Accounts like this one, as Instagram suggests them: up to 50, without their counts. Some accounts have none. 1 credit.
+   * Accounts like this one, as Instagram suggests them. Up to 50, without their counts. Some accounts have none. 1 credit.
    *
    * `GET /v1/instagram/profile/similar`
    */
@@ -236,7 +236,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * Posts for a word or hashtag, as Instagram shows a visitor (its popular page): mostly reels with their plays, 12 a page, about 100 in all. Some words have no such page and answer an empty list. 1 credit a page.
+   * Popular posts for a word or hashtag, 12 a page. Mostly reels with their plays, from its popular page, about 100 in all, as Instagram shows a visitor. Some words have no such page and answer an empty list. 1 credit a page.
    *
    * `GET /v1/instagram/search`
    */
@@ -245,7 +245,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * A sound: a song (title, artist, cover, length) or an account's original audio, and how many reels use it. 1 credit.
+   * A sound, and how many reels use it. A song (title, artist, cover, length) or an account's original audio. 1 credit.
    *
    * `GET /v1/instagram/sound`
    */
@@ -254,7 +254,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * The reels that use a sound, with their plays, likes, comments and times, 12 a page. 1 credit a page.
+   * The reels that use a sound, 12 a page. With their plays, likes, comments and times. 1 credit a page.
    *
    * `GET /v1/instagram/sound/posts`
    */
@@ -263,7 +263,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * The reels feed Instagram gives a visitor now, with likes, comments and times, 8 a page. 1 credit a page.
+   * The reels feed Instagram gives a visitor, 8 a page. With likes, comments and times. 1 credit a page.
    *
    * `GET /v1/instagram/trending`
    */
@@ -272,7 +272,7 @@ export class InstagramEndpoints {
   }
 
   /**
-   * The explore page: trending keywords with their post counts, categories, and accounts to look out for, by section. 1 credit.
+   * The explore page's trending keywords and accounts. Keywords with their post counts and categories, and accounts to watch, by section. 1 credit.
    *
    * `GET /v1/instagram/trending/topics`
    */
@@ -286,7 +286,7 @@ export class ThreadsEndpoints {
   constructor(private readonly api: ThreadsApi) {}
 
   /**
-   * One thread: text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers, a link's preview. Views are not shown to a visitor. 1 credit.
+   * One thread with its counts, media and links. Text, author, time, like, reply, repost, quote and share counts, media, the post it quotes or answers and a link's preview. Views are not shown to a visitor. 1 credit.
    *
    * `GET /v1/threads/post`
    */
@@ -295,7 +295,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * A thread's replies, top or latest first: the first 15 or so, all Threads shows a visitor (no next page). 1 credit.
+   * A thread's replies, top or latest first. The first 15 or so, all Threads shows a visitor (no next page). 1 credit.
    *
    * `GET /v1/threads/post/comments`
    */
@@ -304,7 +304,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * A profile: name, bio and its links, its interests, verified, private and the follower count. 1 credit.
+   * A profile with its follower count. Name, bio and its links, interests, verified, private and the follower count. 1 credit.
    *
    * `GET /v1/threads/profile`
    */
@@ -322,7 +322,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * An account's threads with their likes, replies, reposts, quotes and shares, newest first (pinned ones first of all), 25 a page. 1 credit a page.
+   * An account's threads, newest first, 25 a page. With their likes, replies, reposts, quotes and shares. Pinned ones come first of all. 1 credit a page.
    *
    * `GET /v1/threads/profile/posts`
    */
@@ -331,7 +331,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * An account's replies to other threads, each with the post it answers (`ext.replyTo`), 25 a page. 1 credit a page.
+   * An account's replies to other threads, 25 a page. Each with the post it answers, in `ext.replyTo`. 1 credit a page.
    *
    * `GET /v1/threads/profile/replies`
    */
@@ -340,7 +340,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * Other people's threads an account reposted, with when (`ext.repostedAt`). 1 credit a page.
+   * Other people's threads an account reposted. With when, in `ext.repostedAt`. 1 credit a page.
    *
    * `GET /v1/threads/profile/reposts`
    */
@@ -349,7 +349,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * Threads matching a query, top or latest first: about 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
+   * Threads matching a query, top or latest first. About 30 top or 20 latest, all Threads shows a visitor (no next page). 1 credit.
    *
    * `GET /v1/threads/search`
    */
@@ -358,7 +358,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * Accounts matching a name: the first 10, without their counts. 1 credit.
+   * Accounts matching a name, the first 10. Without their counts. 1 credit.
    *
    * `GET /v1/threads/search/users`
    */
@@ -367,7 +367,7 @@ export class ThreadsEndpoints {
   }
 
   /**
-   * The feed Threads gives a visitor now: about 20 threads in all. 1 credit a page.
+   * The feed Threads gives a visitor now. About 20 threads in all. 1 credit a page.
    *
    * `GET /v1/threads/trending`
    */
@@ -390,7 +390,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * A hashtag: its id, description, and post and view counts. 1 credit.
+   * A hashtag with its post and view counts. Its id, description, and post and view counts. 1 credit.
    *
    * `GET /v1/tiktok/hashtag`
    */
@@ -408,7 +408,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * A live room: whether the account is live, and the room's title, viewers and start (by its id, also how many entered and when it ended). Name the account, or the room with `roomId`. 1 credit.
+   * Whether an account is live, and its room. The room's title, viewers and start. Name the account, or the room with `roomId`; read by its id, the room also says how many entered and when it ended. 1 credit.
    *
    * `GET /v1/tiktok/live`
    */
@@ -426,7 +426,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * One post: caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it, and the captions it has. 1 credit.
+   * One post with its counts, media and sound. Caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it and the captions it has. 1 credit.
    *
    * `GET /v1/tiktok/post`
    */
@@ -462,7 +462,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * A post's captions as text with their times: TikTok's own (generated or the author's), in the language asked for when it has it. `404` when the post has none. 5 credits.
+   * A post's captions as text with their times. TikTok's own, generated or the author's, in the language asked for when it has it. `404` when the post has none. 5 credits.
    *
    * `GET /v1/tiktok/post/transcript`
    */
@@ -471,7 +471,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * A profile: name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
+   * A profile with its exact follower and like counts. Name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
    *
    * `GET /v1/tiktok/profile`
    */
@@ -489,7 +489,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * The accounts an account follows, when it shows them (`403 PRIVATE` when it hides them). 1 credit a page.
+   * The accounts an account follows, when it shows them. `403 PRIVATE` when it hides them. 1 credit a page.
    *
    * `GET /v1/tiktok/profile/following`
    */
@@ -498,7 +498,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * Posts an account liked, when its likes are public (an empty list when they are not). 1 credit a page.
+   * Posts an account liked, when its likes are public. An empty list when they are not. 1 credit a page.
    *
    * `GET /v1/tiktok/profile/liked`
    */
@@ -516,7 +516,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * An account's posts, newest first (pinned ones first of all), 30 a page. 1 credit a page.
+   * An account's posts, newest first, 30 a page. Pinned ones come first of all. 1 credit a page.
    *
    * `GET /v1/tiktok/profile/posts`
    */
@@ -552,7 +552,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * A sound: title, artist, duration, how many posts use it. 1 credit.
+   * A sound, and how many posts use it. Its title, artist and duration, and how many posts use it. 1 credit.
    *
    * `GET /v1/tiktok/sound`
    */
@@ -570,7 +570,7 @@ export class TikTokEndpoints {
   }
 
   /**
-   * What the explore page shows a guest now, for one of its categories (`all` by default): a fresh set of about 30 posts each time. 1 credit.
+   * What the explore page shows now, by category. For one of its categories, `all` by default. A fresh set of about 30 posts each time. 1 credit.
    *
    * `GET /v1/tiktok/trending`
    */
@@ -584,7 +584,7 @@ export class AccountEndpoints {
   constructor(private readonly api: AccountApi) {}
 
   /**
-   * The credits left. Free, and not counted against the rate limit.
+   * The credits left in your workspace. Free, and not counted against the rate limit.
    *
    * `GET /v1/credits`
    */

@@ -568,7 +568,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The posts of a public saved collection, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * The posts of a public saved collection, 30 a page.
      */
     async tiktokCollectionPostsRaw(requestParameters: TiktokCollectionPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokCollectionPostsRequestOpts(requestParameters);
@@ -578,7 +579,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The posts of a public saved collection, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * The posts of a public saved collection, 30 a page.
      */
     async tiktokCollectionPosts(requestParameters: TiktokCollectionPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokCollectionPostsRaw(requestParameters, initOverrides);
@@ -629,7 +631,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A hashtag: its id, description, and post and view counts. 1 credit.
+     * Its id, description, and post and view counts. 1 credit.
+     * A hashtag with its post and view counts.
      */
     async tiktokHashtagRaw(requestParameters: TiktokHashtagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokHashtag>> {
         const requestOptions = await this.tiktokHashtagRequestOpts(requestParameters);
@@ -639,7 +642,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A hashtag: its id, description, and post and view counts. 1 credit.
+     * Its id, description, and post and view counts. 1 credit.
+     * A hashtag with its post and view counts.
      */
     async tiktokHashtag(requestParameters: TiktokHashtagRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokHashtag> {
         const response = await this.tiktokHashtagRaw(requestParameters, initOverrides);
@@ -694,7 +698,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts under a hashtag, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts under a hashtag, 30 a page.
      */
     async tiktokHashtagPostsRaw(requestParameters: TiktokHashtagPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokHashtagPostsRequestOpts(requestParameters);
@@ -704,7 +709,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts under a hashtag, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts under a hashtag, 30 a page.
      */
     async tiktokHashtagPosts(requestParameters: TiktokHashtagPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokHashtagPostsRaw(requestParameters, initOverrides);
@@ -759,7 +765,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A live room: whether the account is live, and the room\'s title, viewers and start (by its id, also how many entered and when it ended). Name the account, or the room with `roomId`. 1 credit.
+     * The room\'s title, viewers and start. Name the account, or the room with `roomId`; read by its id, the room also says how many entered and when it ended. 1 credit.
+     * Whether an account is live, and its room.
      */
     async tiktokLiveRaw(requestParameters: TiktokLiveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokLive>> {
         const requestOptions = await this.tiktokLiveRequestOpts(requestParameters);
@@ -769,7 +776,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A live room: whether the account is live, and the room\'s title, viewers and start (by its id, also how many entered and when it ended). Name the account, or the room with `roomId`. 1 credit.
+     * The room\'s title, viewers and start. Name the account, or the room with `roomId`; read by its id, the room also says how many entered and when it ended. 1 credit.
+     * Whether an account is live, and its room.
      */
     async tiktokLive(requestParameters: TiktokLiveRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokLive> {
         const response = await this.tiktokLiveRaw(requestParameters, initOverrides);
@@ -820,7 +828,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The posts of a playlist, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * The posts of a playlist, 30 a page.
      */
     async tiktokPlaylistPostsRaw(requestParameters: TiktokPlaylistPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokPlaylistPostsRequestOpts(requestParameters);
@@ -830,7 +839,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The posts of a playlist, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * The posts of a playlist, 30 a page.
      */
     async tiktokPlaylistPosts(requestParameters: TiktokPlaylistPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokPlaylistPostsRaw(requestParameters, initOverrides);
@@ -877,7 +887,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post: caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it, and the captions it has. 1 credit.
+     * Caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it and the captions it has. 1 credit.
+     * One post with its counts, media and sound.
      */
     async tiktokPostRaw(requestParameters: TiktokPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokPost>> {
         const requestOptions = await this.tiktokPostRequestOpts(requestParameters);
@@ -887,7 +898,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * One post: caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it, and the captions it has. 1 credit.
+     * Caption, author, view, like, comment, share and save counts and the engagement rate, media, sound, hashtags, the text on it and the captions it has. 1 credit.
+     * One post with its counts, media and sound.
      */
     async tiktokPost(requestParameters: TiktokPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokPost> {
         const response = await this.tiktokPostRaw(requestParameters, initOverrides);
@@ -949,7 +961,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The replies to one comment, 50 a page. 1 credit a page.
+     * 1 credit a page.
+     * The replies to one comment, 50 a page.
      */
     async tiktokPostCommentRepliesRaw(requestParameters: TiktokPostCommentRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokComment>> {
         const requestOptions = await this.tiktokPostCommentRepliesRequestOpts(requestParameters);
@@ -959,7 +972,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The replies to one comment, 50 a page. 1 credit a page.
+     * 1 credit a page.
+     * The replies to one comment, 50 a page.
      */
     async tiktokPostCommentReplies(requestParameters: TiktokPostCommentRepliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokComment> {
         const response = await this.tiktokPostCommentRepliesRaw(requestParameters, initOverrides);
@@ -1010,7 +1024,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s top-level comments, 50 a page. 1 credit a page.
+     * 1 credit a page.
+     * A post\'s top-level comments, 50 a page.
      */
     async tiktokPostCommentsRaw(requestParameters: TiktokPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokComment>> {
         const requestOptions = await this.tiktokPostCommentsRequestOpts(requestParameters);
@@ -1020,7 +1035,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s top-level comments, 50 a page. 1 credit a page.
+     * 1 credit a page.
+     * A post\'s top-level comments, 50 a page.
      */
     async tiktokPostComments(requestParameters: TiktokPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokComment> {
         const response = await this.tiktokPostCommentsRaw(requestParameters, initOverrides);
@@ -1067,7 +1083,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts TikTok recommends beside one post. 1 credit.
+     * 1 credit.
+     * Posts TikTok recommends beside one post.
      */
     async tiktokPostRelatedRaw(requestParameters: TiktokPostRelatedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokPostRelatedRequestOpts(requestParameters);
@@ -1077,7 +1094,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts TikTok recommends beside one post. 1 credit.
+     * 1 credit.
+     * Posts TikTok recommends beside one post.
      */
     async tiktokPostRelated(requestParameters: TiktokPostRelatedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokPostRelatedRaw(requestParameters, initOverrides);
@@ -1128,7 +1146,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s captions as text with their times: TikTok\'s own (generated or the author\'s), in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * A post\'s captions as text with their times.
      */
     async tiktokPostTranscriptRaw(requestParameters: TiktokPostTranscriptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokTranscript>> {
         const requestOptions = await this.tiktokPostTranscriptRequestOpts(requestParameters);
@@ -1138,7 +1157,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A post\'s captions as text with their times: TikTok\'s own (generated or the author\'s), in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * A post\'s captions as text with their times.
      */
     async tiktokPostTranscript(requestParameters: TiktokPostTranscriptRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokTranscript> {
         const response = await this.tiktokPostTranscriptRaw(requestParameters, initOverrides);
@@ -1189,7 +1209,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
+     * Name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
+     * A profile with its exact follower and like counts.
      */
     async tiktokProfileRaw(requestParameters: TiktokProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokProfile>> {
         const requestOptions = await this.tiktokProfileRequestOpts(requestParameters);
@@ -1199,7 +1220,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A profile: name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
+     * Name, bio, link, verified, private, and exact follower, following, like and post counts. 1 credit.
+     * A profile with its exact follower and like counts.
      */
     async tiktokProfile(requestParameters: TiktokProfileRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokProfile> {
         const response = await this.tiktokProfileRaw(requestParameters, initOverrides);
@@ -1254,7 +1276,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s followers, newest first, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * An account\'s followers, newest first, 30 a page.
      */
     async tiktokProfileFollowersRaw(requestParameters: TiktokProfileFollowersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokProfile>> {
         const requestOptions = await this.tiktokProfileFollowersRequestOpts(requestParameters);
@@ -1264,7 +1287,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s followers, newest first, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * An account\'s followers, newest first, 30 a page.
      */
     async tiktokProfileFollowers(requestParameters: TiktokProfileFollowersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokProfile> {
         const response = await this.tiktokProfileFollowersRaw(requestParameters, initOverrides);
@@ -1319,7 +1343,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The accounts an account follows, when it shows them (`403 PRIVATE` when it hides them). 1 credit a page.
+     * `403 PRIVATE` when it hides them. 1 credit a page.
+     * The accounts an account follows, when it shows them.
      */
     async tiktokProfileFollowingRaw(requestParameters: TiktokProfileFollowingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokProfile>> {
         const requestOptions = await this.tiktokProfileFollowingRequestOpts(requestParameters);
@@ -1329,7 +1354,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The accounts an account follows, when it shows them (`403 PRIVATE` when it hides them). 1 credit a page.
+     * `403 PRIVATE` when it hides them. 1 credit a page.
+     * The accounts an account follows, when it shows them.
      */
     async tiktokProfileFollowing(requestParameters: TiktokProfileFollowingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokProfile> {
         const response = await this.tiktokProfileFollowingRaw(requestParameters, initOverrides);
@@ -1384,7 +1410,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts an account liked, when its likes are public (an empty list when they are not). 1 credit a page.
+     * An empty list when they are not. 1 credit a page.
+     * Posts an account liked, when its likes are public.
      */
     async tiktokProfileLikedRaw(requestParameters: TiktokProfileLikedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokProfileLikedRequestOpts(requestParameters);
@@ -1394,7 +1421,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts an account liked, when its likes are public (an empty list when they are not). 1 credit a page.
+     * An empty list when they are not. 1 credit a page.
+     * Posts an account liked, when its likes are public.
      */
     async tiktokProfileLiked(requestParameters: TiktokProfileLikedRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokProfileLikedRaw(requestParameters, initOverrides);
@@ -1449,7 +1477,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The playlists an account made. 1 credit a page.
+     * 1 credit a page.
+     * The playlists an account made.
      */
     async tiktokProfilePlaylistsRaw(requestParameters: TiktokProfilePlaylistsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPlaylist>> {
         const requestOptions = await this.tiktokProfilePlaylistsRequestOpts(requestParameters);
@@ -1459,7 +1488,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * The playlists an account made. 1 credit a page.
+     * 1 credit a page.
+     * The playlists an account made.
      */
     async tiktokProfilePlaylists(requestParameters: TiktokProfilePlaylistsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPlaylist> {
         const response = await this.tiktokProfilePlaylistsRaw(requestParameters, initOverrides);
@@ -1514,7 +1544,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s posts, newest first (pinned ones first of all), 30 a page. 1 credit a page.
+     * Pinned ones come first of all. 1 credit a page.
+     * An account\'s posts, newest first, 30 a page.
      */
     async tiktokProfilePostsRaw(requestParameters: TiktokProfilePostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokProfilePostsRequestOpts(requestParameters);
@@ -1524,7 +1555,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * An account\'s posts, newest first (pinned ones first of all), 30 a page. 1 credit a page.
+     * Pinned ones come first of all. 1 credit a page.
+     * An account\'s posts, newest first, 30 a page.
      */
     async tiktokProfilePosts(requestParameters: TiktokProfilePostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokProfilePostsRaw(requestParameters, initOverrides);
@@ -1579,7 +1611,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Other people\'s posts an account reposted. 1 credit a page.
+     * 1 credit a page.
+     * Other people\'s posts an account reposted.
      */
     async tiktokProfileRepostsRaw(requestParameters: TiktokProfileRepostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokProfileRepostsRequestOpts(requestParameters);
@@ -1589,7 +1622,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Other people\'s posts an account reposted. 1 credit a page.
+     * 1 credit a page.
+     * Other people\'s posts an account reposted.
      */
     async tiktokProfileReposts(requestParameters: TiktokProfileRepostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokProfileRepostsRaw(requestParameters, initOverrides);
@@ -1643,7 +1677,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts matching a query, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts matching a query, 30 a page.
      */
     async tiktokSearchRaw(requestParameters: TiktokSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokSearchRequestOpts(requestParameters);
@@ -1653,7 +1688,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts matching a query, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts matching a query, 30 a page.
      */
     async tiktokSearch(requestParameters: TiktokSearchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokSearchRaw(requestParameters, initOverrides);
@@ -1707,7 +1743,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts matching a query. 1 credit a page.
+     * 1 credit a page.
+     * Accounts matching a query.
      */
     async tiktokSearchUsersRaw(requestParameters: TiktokSearchUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokProfile>> {
         const requestOptions = await this.tiktokSearchUsersRequestOpts(requestParameters);
@@ -1717,7 +1754,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Accounts matching a query. 1 credit a page.
+     * 1 credit a page.
+     * Accounts matching a query.
      */
     async tiktokSearchUsers(requestParameters: TiktokSearchUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokProfile> {
         const response = await this.tiktokSearchUsersRaw(requestParameters, initOverrides);
@@ -1764,7 +1802,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A sound: title, artist, duration, how many posts use it. 1 credit.
+     * Its title, artist and duration, and how many posts use it. 1 credit.
+     * A sound, and how many posts use it.
      */
     async tiktokSoundRaw(requestParameters: TiktokSoundRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokSound>> {
         const requestOptions = await this.tiktokSoundRequestOpts(requestParameters);
@@ -1774,7 +1813,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * A sound: title, artist, duration, how many posts use it. 1 credit.
+     * Its title, artist and duration, and how many posts use it. 1 credit.
+     * A sound, and how many posts use it.
      */
     async tiktokSound(requestParameters: TiktokSoundRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokSound> {
         const response = await this.tiktokSoundRaw(requestParameters, initOverrides);
@@ -1825,7 +1865,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts that use a sound, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts that use a sound, 30 a page.
      */
     async tiktokSoundPostsRaw(requestParameters: TiktokSoundPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokSoundPostsRequestOpts(requestParameters);
@@ -1835,7 +1876,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * Posts that use a sound, 30 a page. 1 credit a page.
+     * 1 credit a page.
+     * Posts that use a sound, 30 a page.
      */
     async tiktokSoundPosts(requestParameters: TiktokSoundPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokSoundPostsRaw(requestParameters, initOverrides);
@@ -1878,7 +1920,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * What the explore page shows a guest now, for one of its categories (`all` by default): a fresh set of about 30 posts each time. 1 credit.
+     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 1 credit.
+     * What the explore page shows now, by category.
      */
     async tiktokTrendingRaw(requestParameters: TiktokTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
         const requestOptions = await this.tiktokTrendingRequestOpts(requestParameters);
@@ -1888,7 +1931,8 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * What the explore page shows a guest now, for one of its categories (`all` by default): a fresh set of about 30 posts each time. 1 credit.
+     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 1 credit.
+     * What the explore page shows now, by category.
      */
     async tiktokTrending(requestParameters: TiktokTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {
         const response = await this.tiktokTrendingRaw(requestParameters, initOverrides);
