@@ -33,6 +33,7 @@ export const ErrorCode = {
     InvalidWebhook: 'INVALID_WEBHOOK',
     UpstreamUnavailable: 'UPSTREAM_UNAVAILABLE',
     Private: 'PRIVATE',
+    Suspended: 'SUSPENDED',
     EndpointUnavailable: 'ENDPOINT_UNAVAILABLE',
     InternalError: 'INTERNAL_ERROR',
 } as const;

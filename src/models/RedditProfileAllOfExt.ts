@@ -55,7 +55,8 @@ export interface RedditProfileAllOfExt {
      */
     premium: boolean;
     /**
-     * Suspended: Reddit shows nothing else of it.
+     * Suspended, on an account in a list: Reddit shows nothing else of it. A suspended
+     * account asked for by its name is refused instead (`410 SUSPENDED`).
      */
     suspended: boolean;
     /**
