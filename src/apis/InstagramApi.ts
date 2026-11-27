@@ -480,7 +480,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With their times. The 18 Instagram shows a visitor, no more. 1 credit.
+     * With their times. The 18 Instagram shows a visitor, no more. 5 credits.
      * A place\'s top posts with their likes and comments.
      */
     async instagramLocationPostsRaw(requestParameters: InstagramLocationPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
@@ -491,7 +491,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With their times. The 18 Instagram shows a visitor, no more. 1 credit.
+     * With their times. The 18 Instagram shows a visitor, no more. 5 credits.
      * A place\'s top posts with their likes and comments.
      */
     async instagramLocationPosts(requestParameters: InstagramLocationPostsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {
@@ -602,7 +602,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * Replies, and how many a comment has, are not shown to a visitor. 5 credits a page.
      * A post\'s comments with their likes, about 22 a page.
      */
     async instagramPostCommentsRaw(requestParameters: InstagramPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramComment>> {
@@ -613,7 +613,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Replies, and how many a comment has, are not shown to a visitor. 1 credit a page.
+     * Replies, and how many a comment has, are not shown to a visitor. 5 credits a page.
      * A post\'s comments with their likes, about 22 a page.
      */
     async instagramPostComments(requestParameters: InstagramPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramComment> {
@@ -913,7 +913,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Up to 50, without their counts. Some accounts have none. 1 credit.
+     * Up to 50, without their counts. Some accounts have none. 5 credits.
      * Accounts like this one, as Instagram suggests them.
      */
     async instagramProfileSimilarRaw(requestParameters: InstagramProfileSimilarRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramProfile>> {
@@ -924,7 +924,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * Up to 50, without their counts. Some accounts have none. 1 credit.
+     * Up to 50, without their counts. Some accounts have none. 5 credits.
      * Accounts like this one, as Instagram suggests them.
      */
     async instagramProfileSimilar(requestParameters: InstagramProfileSimilarRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramProfile> {
@@ -1156,7 +1156,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With likes, comments and times. 1 credit a page.
+     * With likes, comments and times. 5 credits a page.
      * The reels feed Instagram gives a visitor, 8 a page.
      */
     async instagramTrendingRaw(requestParameters: InstagramTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListInstagramPost>> {
@@ -1167,7 +1167,7 @@ export class InstagramApi extends runtime.BaseAPI {
     }
 
     /**
-     * With likes, comments and times. 1 credit a page.
+     * With likes, comments and times. 5 credits a page.
      * The reels feed Instagram gives a visitor, 8 a page.
      */
     async instagramTrending(requestParameters: InstagramTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListInstagramPost> {

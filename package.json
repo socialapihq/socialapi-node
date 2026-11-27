@@ -1,6 +1,6 @@
 {
   "name": "@socialapihq/sdk",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "The official TypeScript SDK for SocialAPI: public social media data from TikTok, Instagram, Threads and Facebook in one schema",
   "license": "Apache-2.0",
   "type": "module",

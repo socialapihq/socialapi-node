@@ -860,7 +860,7 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 10 credits.
      * A video\'s captions as text with their times.
      */
     async facebookPostTranscriptRaw(requestParameters: FacebookPostTranscriptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemFacebookTranscript>> {
@@ -871,7 +871,7 @@ export class FacebookApi extends runtime.BaseAPI {
     }
 
     /**
-     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 5 credits.
+     * Facebook\'s own track, in the video\'s language where it lists one, else a translation (`translated` says so). `404` when the video has none. 10 credits.
      * A video\'s captions as text with their times.
      */
     async facebookPostTranscript(requestParameters: FacebookPostTranscriptRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemFacebookTranscript> {

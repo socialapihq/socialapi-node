@@ -1146,7 +1146,7 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 10 credits.
      * A post\'s captions as text with their times.
      */
     async tiktokPostTranscriptRaw(requestParameters: TiktokPostTranscriptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemTikTokTranscript>> {
@@ -1157,7 +1157,7 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 5 credits.
+     * TikTok\'s own, generated or the author\'s, in the language asked for when it has it. `404` when the post has none. 10 credits.
      * A post\'s captions as text with their times.
      */
     async tiktokPostTranscript(requestParameters: TiktokPostTranscriptRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemTikTokTranscript> {
@@ -1920,7 +1920,7 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 1 credit.
+     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 5 credits.
      * What the explore page shows now, by category.
      */
     async tiktokTrendingRaw(requestParameters: TiktokTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTikTokPost>> {
@@ -1931,7 +1931,7 @@ export class TikTokApi extends runtime.BaseAPI {
     }
 
     /**
-     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 1 credit.
+     * For one of its categories, `all` by default. A fresh set of about 30 posts each time. 5 credits.
      * What the explore page shows now, by category.
      */
     async tiktokTrending(requestParameters: TiktokTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTikTokPost> {

@@ -1511,7 +1511,7 @@ export class PinterestApi extends runtime.BaseAPI {
     }
 
     /**
-     * The 50 terms growing fastest, or the month\'s, the year\'s or the season\'s most searched, each with its change over the week, month and year. Pinterest updates them daily. 1 credit.
+     * The 50 terms growing fastest, or the month\'s, the year\'s or the season\'s most searched, each with its change over the week, month and year. Pinterest updates them daily. 10 credits.
      * What a country searches for on Pinterest Trends.
      */
     async pinterestTrendingRaw(requestParameters: PinterestTrendingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPinterestTrend>> {
@@ -1522,7 +1522,7 @@ export class PinterestApi extends runtime.BaseAPI {
     }
 
     /**
-     * The 50 terms growing fastest, or the month\'s, the year\'s or the season\'s most searched, each with its change over the week, month and year. Pinterest updates them daily. 1 credit.
+     * The 50 terms growing fastest, or the month\'s, the year\'s or the season\'s most searched, each with its change over the week, month and year. Pinterest updates them daily. 10 credits.
      * What a country searches for on Pinterest Trends.
      */
     async pinterestTrending(requestParameters: PinterestTrendingRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPinterestTrend> {

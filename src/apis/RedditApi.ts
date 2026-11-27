@@ -588,7 +588,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * About 25 top-level comments a first page (10 a next), each with its replies a few levels deep, `parentId` naming the comment answered; sorted `best`, `top`, `new`, `old`, `controversial` or `qa`. 1 credit a page.
+     * About 25 top-level comments a first page (10 a next), each with its replies a few levels deep, `parentId` naming the comment answered; sorted `best`, `top`, `new`, `old`, `controversial` or `qa`. 5 credits a page.
      * A post\'s comments with their replies, a page at a time.
      */
     async redditPostCommentsRaw(requestParameters: RedditPostCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRedditComment>> {
@@ -599,7 +599,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * About 25 top-level comments a first page (10 a next), each with its replies a few levels deep, `parentId` naming the comment answered; sorted `best`, `top`, `new`, `old`, `controversial` or `qa`. 1 credit a page.
+     * About 25 top-level comments a first page (10 a next), each with its replies a few levels deep, `parentId` naming the comment answered; sorted `best`, `top`, `new`, `old`, `controversial` or `qa`. 5 credits a page.
      * A post\'s comments with their replies, a page at a time.
      */
     async redditPostComments(requestParameters: RedditPostCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRedditComment> {
@@ -647,7 +647,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * Reddit\'s own caption track, as timed lines and as plain text, for videos Reddit captioned. 5 credits.
+     * Reddit\'s own caption track, as timed lines and as plain text, for videos Reddit captioned. 10 credits.
      * A video post\'s captions as text.
      */
     async redditPostTranscriptRaw(requestParameters: RedditPostTranscriptRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemRedditTranscript>> {
@@ -658,7 +658,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * Reddit\'s own caption track, as timed lines and as plain text, for videos Reddit captioned. 5 credits.
+     * Reddit\'s own caption track, as timed lines and as plain text, for videos Reddit captioned. 10 credits.
      * A video post\'s captions as text.
      */
     async redditPostTranscript(requestParameters: RedditPostTranscriptRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ItemRedditTranscript> {
@@ -777,7 +777,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * Each with its score and the post it is on. 1 credit a page.
+     * Each with its score and the post it is on. 2 credits a comment returned (a full page 50; an account with none costs nothing).
      * An account\'s comments, newest first, 25 a page.
      */
     async redditProfileCommentsRaw(requestParameters: RedditProfileCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRedditComment>> {
@@ -788,7 +788,7 @@ export class RedditApi extends runtime.BaseAPI {
     }
 
     /**
-     * Each with its score and the post it is on. 1 credit a page.
+     * Each with its score and the post it is on. 2 credits a comment returned (a full page 50; an account with none costs nothing).
      * An account\'s comments, newest first, 25 a page.
      */
     async redditProfileComments(requestParameters: RedditProfileCommentsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRedditComment> {
