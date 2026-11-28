@@ -59,10 +59,20 @@ import {
     ListLinkedInCommentToJSON,
 } from '../models/ListLinkedInComment.js';
 import {
+    type ListLinkedInCompanyMatch,
+    ListLinkedInCompanyMatchFromJSON,
+    ListLinkedInCompanyMatchToJSON,
+} from '../models/ListLinkedInCompanyMatch.js';
+import {
     type ListLinkedInJob,
     ListLinkedInJobFromJSON,
     ListLinkedInJobToJSON,
 } from '../models/ListLinkedInJob.js';
+import {
+    type ListLinkedInLocation,
+    ListLinkedInLocationFromJSON,
+    ListLinkedInLocationToJSON,
+} from '../models/ListLinkedInLocation.js';
 import {
     type ListLinkedInPost,
     ListLinkedInPostFromJSON,
@@ -167,6 +177,11 @@ export interface LinkedinCompanyJobsRequest {
      * Its page's link, instead of `handle`.
      */
     url?: string;
+    /**
+     * The company by its id (`1035`), as `/v1/linkedin/search/companies` gives it, instead
+     * of `handle`: its own jobs alone, with no page to read first.
+     */
+    companyId?: string;
     /**
      * `nextCursor` of the previous page.
      */
@@ -310,6 +325,18 @@ export interface LinkedinProfilePostsRequest {
     maxAge?: number;
 }
 
+export interface LinkedinSearchCompaniesRequest {
+    /**
+     * The words to match, as a search box takes them (`berlin`, `microsoft`).
+     */
+    query?: string;
+    /**
+     * How old a cached answer may be, in seconds; 0 always fetches. Default and
+     * most: the endpoint's cache lifetime.
+     */
+    maxAge?: number;
+}
+
 export interface LinkedinSearchJobsRequest {
     /**
      * What to search for: a title, skills, a company.
@@ -319,6 +346,11 @@ export interface LinkedinSearchJobsRequest {
      * Where: a city, a region or a country, as written (`Berlin, Germany`).
      */
     location?: string;
+    /**
+     * Where, by a place's id from `/v1/linkedin/search/locations` (`106967730`, Berlin,
+     * Germany), instead of `location`: the place meant, where a name is several places'.
+     */
+    locationId?: string;
     /**
      * `day`, `week` or `month`: posted that recently.
      */
@@ -345,6 +377,18 @@ export interface LinkedinSearchJobsRequest {
      * `nextCursor` of the previous page.
      */
     cursor?: string;
+    /**
+     * How old a cached answer may be, in seconds; 0 always fetches. Default and
+     * most: the endpoint's cache lifetime.
+     */
+    maxAge?: number;
+}
+
+export interface LinkedinSearchLocationsRequest {
+    /**
+     * The words to match, as a search box takes them (`berlin`, `microsoft`).
+     */
+    query?: string;
     /**
      * How old a cached answer may be, in seconds; 0 always fetches. Default and
      * most: the endpoint's cache lifetime.
@@ -639,6 +683,10 @@ export class LinkedInApi extends runtime.BaseAPI {
             queryParameters['url'] = requestParameters['url'];
         }
 
+        if (requestParameters['companyId'] != null) {
+            queryParameters['companyId'] = requestParameters['companyId'];
+        }
+
         if (requestParameters['cursor'] != null) {
             queryParameters['cursor'] = requestParameters['cursor'];
         }
@@ -669,7 +717,7 @@ export class LinkedInApi extends runtime.BaseAPI {
     }
 
     /**
-     * The jobs its page\'s \"See jobs\" lists (its own and its subsidiaries\'), each with its title, location, the day it was posted and LinkedIn\'s notes on it; up to 1,000. 1 credit a page.
+     * The jobs its page\'s \"See jobs\" lists (its own and its subsidiaries\'), or, by its `companyId` from `/v1/linkedin/search/companies`, its own: each with its title, location, the day it was posted and LinkedIn\'s notes on it; up to 1,000. 1 credit a page.
      * A company\'s open jobs, 10 a page.
      */
     async linkedinCompanyJobsRaw(requestParameters: LinkedinCompanyJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinkedInJob>> {
@@ -680,7 +728,7 @@ export class LinkedInApi extends runtime.BaseAPI {
     }
 
     /**
-     * The jobs its page\'s \"See jobs\" lists (its own and its subsidiaries\'), each with its title, location, the day it was posted and LinkedIn\'s notes on it; up to 1,000. 1 credit a page.
+     * The jobs its page\'s \"See jobs\" lists (its own and its subsidiaries\'), or, by its `companyId` from `/v1/linkedin/search/companies`, its own: each with its title, location, the day it was posted and LinkedIn\'s notes on it; up to 1,000. 1 credit a page.
      * A company\'s open jobs, 10 a page.
      */
     async linkedinCompanyJobs(requestParameters: LinkedinCompanyJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinkedInJob> {
@@ -1165,6 +1213,61 @@ export class LinkedInApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates request options for linkedinSearchCompanies without sending the request
+     */
+    async linkedinSearchCompaniesRequestOpts(requestParameters: LinkedinSearchCompaniesRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['query'] != null) {
+            queryParameters['query'] = requestParameters['query'];
+        }
+
+        if (requestParameters['maxAge'] != null) {
+            queryParameters['maxAge'] = requestParameters['maxAge'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("apiKey", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/v1/linkedin/search/companies`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * The companies LinkedIn\'s job search suggests for a name, the best match first, at most 10: each with its id, which `/v1/linkedin/company/jobs` takes as `companyId`, and its name. An empty list when none matches. 1 credit, cached a day.
+     * Companies matching a name, with their ids.
+     */
+    async linkedinSearchCompaniesRaw(requestParameters: LinkedinSearchCompaniesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinkedInCompanyMatch>> {
+        const requestOptions = await this.linkedinSearchCompaniesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListLinkedInCompanyMatchFromJSON(jsonValue));
+    }
+
+    /**
+     * The companies LinkedIn\'s job search suggests for a name, the best match first, at most 10: each with its id, which `/v1/linkedin/company/jobs` takes as `companyId`, and its name. An empty list when none matches. 1 credit, cached a day.
+     * Companies matching a name, with their ids.
+     */
+    async linkedinSearchCompanies(requestParameters: LinkedinSearchCompaniesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinkedInCompanyMatch> {
+        const response = await this.linkedinSearchCompaniesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Creates request options for linkedinSearchJobs without sending the request
      */
     async linkedinSearchJobsRequestOpts(requestParameters: LinkedinSearchJobsRequest): Promise<runtime.RequestOpts> {
@@ -1176,6 +1279,10 @@ export class LinkedInApi extends runtime.BaseAPI {
 
         if (requestParameters['location'] != null) {
             queryParameters['location'] = requestParameters['location'];
+        }
+
+        if (requestParameters['locationId'] != null) {
+            queryParameters['locationId'] = requestParameters['locationId'];
         }
 
         if (requestParameters['posted'] != null) {
@@ -1228,7 +1335,7 @@ export class LinkedInApi extends runtime.BaseAPI {
     }
 
     /**
-     * LinkedIn\'s job search by words and a place, posted within a `day`, `week` or `month`, by contract `type`, `experience` and `workplace`: each job with its company, location, the day it was posted, its pay where given and LinkedIn\'s notes on it; up to 1,000. 1 credit a page, cached 2 minutes.
+     * LinkedIn\'s job search by words and a place (as written, or by its `locationId` from `/v1/linkedin/search/locations`), posted within a `day`, `week` or `month`, by contract `type`, `experience` and `workplace`: each job with its company, location, the day it was posted, its pay where given and LinkedIn\'s notes on it; up to 1,000. 1 credit a page, cached 2 minutes.
      * Job postings for a search, 10 a page.
      */
     async linkedinSearchJobsRaw(requestParameters: LinkedinSearchJobsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinkedInJob>> {
@@ -1239,11 +1346,66 @@ export class LinkedInApi extends runtime.BaseAPI {
     }
 
     /**
-     * LinkedIn\'s job search by words and a place, posted within a `day`, `week` or `month`, by contract `type`, `experience` and `workplace`: each job with its company, location, the day it was posted, its pay where given and LinkedIn\'s notes on it; up to 1,000. 1 credit a page, cached 2 minutes.
+     * LinkedIn\'s job search by words and a place (as written, or by its `locationId` from `/v1/linkedin/search/locations`), posted within a `day`, `week` or `month`, by contract `type`, `experience` and `workplace`: each job with its company, location, the day it was posted, its pay where given and LinkedIn\'s notes on it; up to 1,000. 1 credit a page, cached 2 minutes.
      * Job postings for a search, 10 a page.
      */
     async linkedinSearchJobs(requestParameters: LinkedinSearchJobsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinkedInJob> {
         const response = await this.linkedinSearchJobsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Creates request options for linkedinSearchLocations without sending the request
+     */
+    async linkedinSearchLocationsRequestOpts(requestParameters: LinkedinSearchLocationsRequest): Promise<runtime.RequestOpts> {
+        const queryParameters: any = {};
+
+        if (requestParameters['query'] != null) {
+            queryParameters['query'] = requestParameters['query'];
+        }
+
+        if (requestParameters['maxAge'] != null) {
+            queryParameters['maxAge'] = requestParameters['maxAge'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("apiKey", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/v1/linkedin/search/locations`;
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * The cities, regions, metropolitan areas and countries LinkedIn\'s job search suggests for a name, the best match first, at most 10: each with its id, which `/v1/linkedin/search/jobs` takes as `locationId`, and its full name (`Berlin, Berlin, Germany`), so the place meant is told from others of its name. An empty list when none matches. 1 credit, cached a day.
+     * Places matching a name, with their ids.
+     */
+    async linkedinSearchLocationsRaw(requestParameters: LinkedinSearchLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinkedInLocation>> {
+        const requestOptions = await this.linkedinSearchLocationsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ListLinkedInLocationFromJSON(jsonValue));
+    }
+
+    /**
+     * The cities, regions, metropolitan areas and countries LinkedIn\'s job search suggests for a name, the best match first, at most 10: each with its id, which `/v1/linkedin/search/jobs` takes as `locationId`, and its full name (`Berlin, Berlin, Germany`), so the place meant is told from others of its name. An empty list when none matches. 1 credit, cached a day.
+     * Places matching a name, with their ids.
+     */
+    async linkedinSearchLocations(requestParameters: LinkedinSearchLocationsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinkedInLocation> {
+        const response = await this.linkedinSearchLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

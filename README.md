@@ -244,7 +244,9 @@ The generated classes (`TikTokApi`, `InstagramApi`…) are exported too. Their `
 | `linkedin.profile()` | A member's public profile with its followers |
 | `linkedin.profileArticles()` | A member's articles |
 | `linkedin.profilePosts()` | A member's latest posts |
+| `linkedin.searchCompanies()` | Companies matching a name |
 | `linkedin.searchJobs()` | Job postings for a search |
+| `linkedin.searchLocations()` | Places matching a name |
 | `linkedin.searchUsers()` | Members with a first and last name |
 
 ### Pinterest
